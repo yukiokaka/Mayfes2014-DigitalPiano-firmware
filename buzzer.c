@@ -1,0 +1,79 @@
+#include "LPC11xx.h"		/* LPC11xx register definitions */
+#include "system_LPC11xx.h"
+#include "buzzer.h"
+#include "xprintf.h"
+
+static uint32_t prescale_value = 0; 
+static uint32_t pwm_period = 27272;
+static uint32_t palse_width = 27272/2; 
+
+static const uint32_t scale_freq[] = {freq_C,
+                                      freq_Cs,
+                                      freq_D,
+                                      freq_Ds,
+                                      freq_E,
+                                      freq_F,
+                                      freq_Fs,
+                                      freq_G,
+                                      freq_Gs,
+                                      freq_A,
+                                      freq_As,
+                                      freq_B,
+                                      freq_HC,
+};
+
+void pwm_init (void)
+{
+    LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 10);
+
+    LPC_TMR32B1->PR = prescale_value;
+    LPC_TMR32B1->PWMC = (1 << 0);
+    LPC_TMR32B1->MR0 = palse_width;
+    LPC_TMR32B1->MR1 = pwm_period;
+    LPC_TMR32B1->MCR = (1 << 4);
+
+    /* LPC_TMR32B1->TCR = (1 << 0);  */
+}
+
+void set_palse_width (const uint32_t new_palse_width)
+{
+    if (new_palse_width >= pwm_period) palse_width = pwm_period;
+    else palse_width = new_palse_width;
+}
+
+void set_pwm_period (const uint32_t new_pwm_period)
+{
+    if (pwm_period >= 0xFFFFFFFF) pwm_period = 0xFFFFFFFF;
+    else pwm_period = new_pwm_period;
+}
+
+void set_sound_scale(const uint32_t new_scale)
+{
+    uint32_t new_pwm_period, new_palse_width; 
+    if (new_scale > 12) return;
+
+    new_pwm_period = (12000000 / scale_freq[new_scale]);
+    new_palse_width = (new_pwm_period / 2);
+    /* xprintf("scale_frec = %d\n",scale_freq[new_scale]); */
+    set_pwm_period(new_pwm_period);
+    set_palse_width(new_palse_width);
+}
+
+void buzzer_on (void)
+{
+    LPC_TMR32B1->TCR |= (1 << 0); 
+}
+
+void buzzer_off (void)
+{
+    LPC_TMR32B1->TCR &= ~(1 << 0); 
+}
+
+void update_pwm_status (void)
+{
+    LPC_TMR32B1->PR = prescale_value;
+    LPC_TMR32B1->MR0 = palse_width;
+    LPC_TMR32B1->MR1 = pwm_period;
+    /* xprintf("PWM period = %d\n", pwm_period); */
+    /* xprintf("PWM palse = %d\n", palse_width); */
+}
