@@ -3,9 +3,10 @@
 #include "buzzer.h"
 #include "xprintf.h"
 
-static uint32_t prescale_value = 0; 
-static uint32_t pwm_period = 27272;
-static uint32_t palse_width = 27272/2; 
+static volatile uint32_t prescale_value = 0; 
+static volatile uint32_t pwm_period = 27272;
+static volatile uint32_t palse_width = 27272/2; 
+static volatile uint32_t buzzer_status = OFF;
 
 static const uint32_t scale_freq[] = {freq_C,
                                       freq_Cs,
@@ -61,19 +62,21 @@ void set_sound_scale(const uint32_t new_scale)
 
 void buzzer_on (void)
 {
-    LPC_TMR32B1->TCR |= (1 << 0); 
+    buzzer_status = ON;
 }
 
 void buzzer_off (void)
 {
-    LPC_TMR32B1->TCR &= ~(1 << 0); 
+    buzzer_status = OFF;
 }
 
-void update_pwm_status (void)
+void update_buzzer_status (void)
 {
     LPC_TMR32B1->PR = prescale_value;
     LPC_TMR32B1->MR0 = palse_width;
     LPC_TMR32B1->MR1 = pwm_period;
+    if(buzzer_status)     LPC_TMR32B1->TCR |= (1 << 0); 
+    else     LPC_TMR32B1->TCR &= ~(1 << 0); 
     /* xprintf("PWM period = %d\n", pwm_period); */
     /* xprintf("PWM palse = %d\n", palse_width); */
 }

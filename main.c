@@ -17,16 +17,19 @@
 
 /* 1kHz Timer ISR */
 static int i = 0;
+static volatile uint32_t switch_st = 0;
+static volatile uint32_t palse_width = 1000;
 
 void SysTick_Handler (void)
 {
-    static scale = 0;
+    static uint32_t scale = 0;
     SysTick->CTRL;
 
     i++;
-    update_switch_status();
-    if (i % 100 == 0) {
-        update_pwm_status();
+    if ((i % 10) == 0) {
+        update_switch_status();
+        switch_st = get_switch_status();
+        update_buzzer_status();
     }
 }
 
@@ -65,8 +68,66 @@ int main (void)
     /* } */
 
         /* test2 */
- 
-            xprintf("sw : %x\n", get_switch_status());
+        /* xprintf("sw : %x\n", get_switch_status()); */
+
+        /* test3 */
+        if (switch_st & (1 << C)) {
+                set_sound_scale(C);
+                buzzer_on();
+            }
+        if (switch_st & (1 << Cs)) {
+                set_sound_scale(Cs);
+                buzzer_on();
+            }
+        if (switch_st & (1 << D)) {
+                set_sound_scale(D);
+                buzzer_on();
+            }
+        if (switch_st & (1 << Ds)) {
+                set_sound_scale(Ds);
+                buzzer_on();
+            }
+        if (switch_st & (1 << E)) {
+                set_sound_scale(E);
+                buzzer_on();
+            }
+        if (switch_st & (1 << F)) {
+                set_sound_scale(F);
+                buzzer_on();
+            }
+        if (switch_st & (1 << Fs)) {
+                set_sound_scale(Fs);
+                buzzer_on();
+            }
+        if (switch_st & (1 << G)) {
+                set_sound_scale(G);
+                buzzer_on();
+            }
+        if (switch_st & (1 << Gs)) {
+                set_sound_scale(Gs);
+                buzzer_on();
+            }
+        if (switch_st & (1 << A)) {
+                set_sound_scale(A);
+                buzzer_on();
+            }
+        if (switch_st & (1 << As)) {
+                set_sound_scale(As);
+                buzzer_on();
+            }
+        if (switch_st & (1 << B)) {
+                set_sound_scale(B);
+                buzzer_on();
+            }
+        if (switch_st & (1 << HC)) {
+                set_sound_scale(HC);
+                buzzer_on();
+            }
+
+        if (switch_st == 0) {
+            buzzer_off();
+        }
+            
     }
             
             

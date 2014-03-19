@@ -1,6 +1,9 @@
 #ifndef _BUZZER_H_
 #define _BUZZER_H_
 
+#define ON 1
+#define OFF 0
+
 #define C 0
 #define Cs 1
 #define D 2
@@ -35,6 +38,8 @@ void pwm_init (void);
 void set_palse_width (const uint32_t new_palse_width);
 void set_pwm_period (const uint32_t new_pwm_period);
 void set_sound_scale(const uint32_t new_scale);
-void update_pwm_status (void);
+void buzzer_on (void);
+void buzzer_off (void);
+void update_buzzer_status (void);
 
 #endif
