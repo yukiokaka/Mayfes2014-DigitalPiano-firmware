@@ -18,7 +18,8 @@
 #define B 11
 #define HC 12
 
-
+#define PLAY 13
+#define REC 14
 
 #define freq_C 262
 #define freq_Cs 277
