@@ -151,7 +151,7 @@ int main (void)
                 buzzer_on();
             }
 
-            if (switch_st == 0) {
+            if ((switch_st & 0x1FFF) == 0) {
                 buzzer_off();
             }
             if(switch_st & (1 << PLAY)) {
