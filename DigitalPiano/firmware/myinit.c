@@ -144,7 +144,7 @@ void ioinit (void)
     LPC_IOCON->PIO1_9 |= (1 << 5); /* Pull-up,Hysteresis Enable */ 
 
     /* buzzer */
-    LPC_IOCON->R_PIO1_1 = (3 << 0); /* CT32B1_MAT0 */
+    LPC_IOCON->R_PIO1_1 = ((1 << 7) | (1 << 6) | (3 << 0)); /* CT32B1_MAT0 */
  
 }
 

@@ -9,7 +9,7 @@
    スイッチが押されていると0、押されていないと1
    10ms周期で更新
 */
-static volatile uint32_t switch_status = 0;
+static volatile uint16_t switch_status = 0;
 
 void update_switch_status (void)
 {
@@ -31,7 +31,7 @@ void update_switch_status (void)
          ((LPC_GPIO1->MASKED_ACCESS[1 <<  9]>>9& 0x1) << 14)) ; /* REC */
 }
 
-uint32_t get_switch_status (void) 
+uint16_t get_switch_status (void) 
 {
     return (~switch_status & 0x7FFF);
 }
