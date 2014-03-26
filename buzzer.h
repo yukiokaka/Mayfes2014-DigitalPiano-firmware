@@ -38,7 +38,7 @@
 void pwm_init (void);
 void set_palse_width (const uint32_t new_palse_width);
 void set_pwm_period (const uint32_t new_pwm_period);
-void set_sound_scale(const uint32_t new_scale);
+void set_sound_scale(const uint8_t new_scale);
 void buzzer_on (void);
 void buzzer_off (void);
 void update_buzzer_status (void);

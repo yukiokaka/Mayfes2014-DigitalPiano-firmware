@@ -5,6 +5,7 @@
 #include "xprintf.h"
 #include "buzzer.h"
 #include "gpio.h"
+#include "rec.h"
 #include "main.h"
 
 #define _BV(x) (1 << (x))
@@ -15,36 +16,38 @@
 /*---------------------------------------------------------*/
 
 
+static volatile uint16_t switch_st = 0;
+static uint16_t rec_ptr = 0;
+static short rec_length = 0;
+static short play_ptr = 0;
+static short melody_list[REC_LIMIT]; 
+static int Mode = NORMAL_MODE;
+
 /* 1kHz Timer ISR */
 static int i = 0;
-static volatile uint32_t switch_st = 0;
-static volatile uint32_t palse_width = 1000;
-static volatile uint32_t rec_ptr = 0;
-static uint32_t rec_length = 0;
-static volatile uint32_t play_ptr = 0;
-static volatile uint32_t melody_list[REC_LIMIT]; 
-static volatile int Mode = NORMAL_MODE;
 
 void SysTick_Handler (void)
 {
-    static uint32_t scale = 0;
     SysTick->CTRL;
 
     i++;
-    if ((i % 10) == 0) {
+    if ((i % 50) == 0) {
         update_switch_status();
         switch_st = get_switch_status();
         update_buzzer_status();
-        xprintf("sw   : %x  ",switch_st);
-        xprintf("mode : %d  ",Mode);
-        xprintf("rec  : %d\n", rec_ptr);
-        /* todo:録音限界の処理 */
+        xprintf("sw   : %x  \n",switch_st);
+        /* xprintf("mode : %d  ",Mode); */
+        /* xprintf("rec  : %d\n", rec_ptr); */
         if (Mode == REC_MODE) {
             melody_list[rec_ptr++] = (switch_st & 0x1FFF);
             if (rec_ptr == REC_LIMIT) Mode = NORMAL_MODE;
         }
         if ((Mode != REC_MODE) && (rec_ptr != 0)) {
             rec_length = rec_ptr;
+            set_rec_data((short *)&rec_length, 2, 0);
+            for(rec_ptr = 0; rec_ptr < rec_length; rec_ptr++) {
+                set_rec_data((short *)melody_list + rec_ptr, 2, rec_ptr + 1);
+            }
             rec_ptr = 0;
         }
         if (Mode == PLAY_MODE) {
@@ -62,8 +65,7 @@ void SysTick_Handler (void)
 
 int main (void)
 {
-    char c;
-
+ 
     MySystemInit();
     NVOL_Init();
 
@@ -72,7 +74,7 @@ int main (void)
     xdev_in(uart_getc);
     xdev_out(uart_putc);
     pwm_init();
-
+    get_rec_data(&rec_length, melody_list);
     /* Enable SysTick timer in interval of 1ms */
     SysTick->LOAD = AHB_CLOCK /1000 - 1;
     SysTick->CTRL = 0x07;
@@ -80,12 +82,7 @@ int main (void)
     xprintf("test\n");
     
     while (1) {
-        /* やること */
-        /*     モードは3つ */
-        /*     -通常モード */
-        /*     -録音モード */
-        /*     -再生モード */
-
+ 
         /* test1 */
         /* buzzer_on(); */
         /* if (c = uart_getc()){ */
@@ -164,9 +161,6 @@ int main (void)
                 Mode = NORMAL_MODE;
             }
  
-
-  
-  
     }
             
             
