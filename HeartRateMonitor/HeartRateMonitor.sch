@@ -1716,11 +1716,11 @@ for Power supply cable</description>
 <part name="D1" library="Diode_Robotech" deviceset="LED" device="-5"/>
 <part name="R9" library="Passive_Robotech" deviceset="R" device="/10" value="1k"/>
 <part name="P+4" library="Supply_Robotech" deviceset="VCC" device=""/>
-<part name="IC2" library="IC_Robotech" deviceset="78*" device="(LARGEHOLE)"/>
+<part name="TA7805" library="IC_Robotech" deviceset="78*" device="(LARGEHOLE)"/>
 <part name="P+5" library="Supply_Robotech" deviceset="VCC" device=""/>
 <part name="SUPPLY7" library="Supply_Robotech" deviceset="GND" device=""/>
-<part name="PAD1" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
-<part name="PAD2" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
+<part name="GND" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
+<part name="VCC" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
 <part name="SUPPLY8" library="Supply_Robotech" deviceset="GND" device=""/>
 <part name="C4" library="Passive_Robotech" deviceset="C" device="/5" value="0.1u"/>
 <part name="C5" library="Passive_Robotech" deviceset="C" device="/5" value="0.33u"/>
@@ -1760,11 +1760,11 @@ for Power supply cable</description>
 <instance part="D1" gate="G$1" x="86.36" y="58.42"/>
 <instance part="R9" gate="G$1" x="86.36" y="68.58" rot="R90"/>
 <instance part="P+4" gate="VCC" x="86.36" y="76.2"/>
-<instance part="IC2" gate="G$1" x="-5.08" y="30.48"/>
+<instance part="TA7805" gate="G$1" x="-5.08" y="30.48"/>
 <instance part="P+5" gate="VCC" x="7.62" y="35.56"/>
 <instance part="SUPPLY7" gate="GND" x="-5.08" y="20.32"/>
-<instance part="PAD1" gate="1" x="-25.4" y="35.56" rot="R270"/>
-<instance part="PAD2" gate="1" x="-17.78" y="35.56" rot="R270"/>
+<instance part="GND" gate="1" x="-25.4" y="35.56" rot="R270"/>
+<instance part="VCC" gate="1" x="-17.78" y="35.56" rot="R270"/>
 <instance part="SUPPLY8" gate="GND" x="-25.4" y="30.48"/>
 <instance part="C4" gate="G$1" x="5.08" y="30.48"/>
 <instance part="C5" gate="G$1" x="-15.24" y="30.48"/>
@@ -1794,7 +1794,7 @@ for Power supply cable</description>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="O"/>
+<pinref part="TA7805" gate="G$1" pin="O"/>
 <pinref part="P+5" gate="VCC" pin="VCC"/>
 <wire x1="2.54" y1="33.02" x2="5.08" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="1"/>
@@ -1846,12 +1846,12 @@ for Power supply cable</description>
 <pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="PAD1" gate="1" pin="P"/>
+<pinref part="GND" gate="1" pin="P"/>
 <pinref part="SUPPLY8" gate="GND" pin="GND"/>
 </segment>
 <segment>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
-<pinref part="IC2" gate="G$1" pin="G"/>
+<pinref part="TA7805" gate="G$1" pin="G"/>
 <wire x1="-5.08" y1="22.86" x2="-5.08" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="-5.08" y1="25.4" x2="-5.08" y2="27.94" width="0.1524" layer="91"/>
@@ -1955,8 +1955,8 @@ for Power supply cable</description>
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="PAD2" gate="1" pin="P"/>
-<pinref part="IC2" gate="G$1" pin="I"/>
+<pinref part="VCC" gate="1" pin="P"/>
+<pinref part="TA7805" gate="G$1" pin="I"/>
 <wire x1="-17.78" y1="33.02" x2="-15.24" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="-15.24" y1="33.02" x2="-12.7" y2="33.02" width="0.1524" layer="91"/>
