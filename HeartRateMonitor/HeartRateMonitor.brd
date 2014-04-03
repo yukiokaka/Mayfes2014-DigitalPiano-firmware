@@ -97,6 +97,12 @@
 <wire x1="41.58" y1="0" x2="41.58" y2="41.9" width="0" layer="20"/>
 <wire x1="41.58" y1="41.9" x2="0" y2="41.9" width="0" layer="20"/>
 <wire x1="0" y1="41.9" x2="0" y2="0" width="0" layer="20"/>
+<text x="28.448" y="25.4" size="1.778" layer="21">EEIC</text>
+<text x="28.448" y="23.368" size="1.778" layer="21">MAYFES</text>
+<text x="28.448" y="21.336" size="1.778" layer="21">2014</text>
+<text x="28.448" y="19.304" size="1.778" layer="21">HeartRate</text>
+<text x="28.448" y="17.272" size="1.778" layer="21">Monitor</text>
+<text x="1.524" y="18.796" size="1.778" layer="21">SW</text>
 </plain>
 <libraries>
 <library name="Sensor_Robotech">
@@ -550,8 +556,8 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="18.415" y="33.6931" size="1.27" layer="27" font="vector" ratio="10" rot="R270"/>
 </element>
 <element name="C1" library="Passive_Robotech" package="C050-024X044" value="1u" x="24.13" y="33.02" smashed="yes" rot="R180">
-<attribute name="NAME" x="21.336" y="34.0995" size="1.27" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="23.5585" y="34.163" size="1.27" layer="27" font="vector" ratio="10"/>
+<attribute name="NAME" x="21.336" y="34.2265" size="1.27" layer="25" font="vector" ratio="10"/>
+<attribute name="VALUE" x="23.876" y="34.29" size="1.27" layer="27" font="vector" ratio="10"/>
 </element>
 <element name="IC1" library="IC_Robotech" package="DIL08" value="NJM7032D" x="21.59" y="20.32" smashed="yes">
 <attribute name="VALUE" x="17.7165" y="19.685" size="1.27" layer="27" ratio="10"/>
@@ -570,8 +576,8 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="36.195" y="35.2806" size="1.27" layer="27" font="vector" ratio="10" rot="R270"/>
 </element>
 <element name="C2" library="Passive_Robotech" package="C050-024X044" value="0.1u" x="24.13" y="27.94" smashed="yes" rot="R180">
-<attribute name="NAME" x="21.336" y="29.337" size="1.27" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="23.876" y="29.4005" size="1.27" layer="27" font="vector" ratio="10"/>
+<attribute name="NAME" x="21.336" y="29.21" size="1.27" layer="25" font="vector" ratio="10"/>
+<attribute name="VALUE" x="23.876" y="29.21" size="1.27" layer="27" font="vector" ratio="10"/>
 </element>
 <element name="R6" library="Passive_Robotech" package="0207/10" value="100k" x="8.89" y="2.54" smashed="yes" rot="R180">
 <attribute name="NAME" x="5.842" y="3.7465" size="1.27" layer="25" font="vector" ratio="10"/>
@@ -601,10 +607,10 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="10.1981" y="6.985" size="1.27" layer="27" font="vector" ratio="10" rot="R180"/>
 </element>
 <element name="TA7805" library="IC_Robotech" package="7805-LARGEHOLE" value="78(LARGEHOLE)" x="3.81" y="14.224" smashed="yes" rot="R270">
-<attribute name="NAME" x="6.6675" y="16.764" size="1.27" layer="25" rot="R270"/>
+<attribute name="NAME" x="6.4135" y="17.272" size="1.27" layer="25" rot="R270"/>
 </element>
 <element name="GND" library="Connector_Robotech" package="POWERPAD-2.4" value="" x="3.81" y="37.338" smashed="yes">
-<attribute name="NAME" x="1.905" y="39.624" size="1.27" layer="25" ratio="10"/>
+<attribute name="NAME" x="1.778" y="35.433" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="3.81" y="38.538" size="0.0254" layer="27"/>
 </element>
 <element name="C4" library="Passive_Robotech" package="C050-024X044" value="0.1u" x="10.16" y="31.75" smashed="yes" rot="R180">
@@ -619,7 +625,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="8.001" y="39.8145" size="1.27" layer="21" font="vector" ratio="10"/>
 <attribute name="VALUE" x="8.001" y="35.433" size="1.27" layer="27" font="vector" ratio="10"/>
 </element>
-<element name="VCC1" library="Connector_Robotech" package="POWERPAD-2.4" value="" x="3.81" y="32.512"/>
+<element name="VCC" library="Connector_Robotech" package="POWERPAD-2.4" value="" x="3.81" y="32.512" smashed="yes">
+<attribute name="NAME" x="1.778" y="30.607" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="3.81" y="33.712" size="0.0254" layer="27"/>
+</element>
 <element name="SW1" library="Passive_Robotech" package="IS-2235" value="IS-2235" x="3.556" y="25.146" rot="R270"/>
 </elements>
 <signals>
@@ -643,12 +652,15 @@ design rules under a new name.</description>
 <wire x1="17.78" y1="25.4" x2="17.78" y2="26.67" width="0.8128" layer="16"/>
 <wire x1="17.78" y1="25.4" x2="16.51" y2="26.67" width="0.8128" layer="16"/>
 <wire x1="17.78" y1="25.4" x2="19.05" y2="26.67" width="0.8128" layer="16"/>
-<wire x1="3.81" y1="11.684" x2="3.81" y2="6.35" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="11.684" x2="3.81" y2="10.668" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="10.16" x2="3.81" y2="6.35" width="0.8128" layer="16"/>
 <wire x1="17.78" y1="24.13" x2="17.78" y2="20.828" width="0.8128" layer="16"/>
-<wire x1="17.78" y1="20.828" x2="13.97" y2="17.018" width="0.8128" layer="16"/>
-<wire x1="13.97" y1="17.018" x2="13.716" y2="16.764" width="0.8128" layer="16"/>
-<wire x1="3.81" y1="11.684" x2="8.636" y2="11.684" width="0.8128" layer="16"/>
-<wire x1="8.636" y1="11.684" x2="13.716" y2="16.764" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="11.684" x2="5.334" y2="11.684" width="0.8128" layer="16"/>
+<wire x1="5.334" y1="11.684" x2="8.636" y2="11.684" width="0.8128" layer="16"/>
+<wire x1="8.636" y1="11.684" x2="17.78" y2="20.828" width="0.8128" layer="16"/>
+<wire x1="5.334" y1="11.684" x2="3.81" y2="10.16" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="10.16" x2="3.81" y2="10.668" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="10.668" x2="4.572" y2="11.43" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$1">
 <contactref element="R1" pad="1"/>
@@ -858,7 +870,7 @@ design rules under a new name.</description>
 </polygon>
 </signal>
 <signal name="N$13">
-<contactref element="VCC1" pad="1"/>
+<contactref element="VCC" pad="1"/>
 <contactref element="SW1" pad="P$1"/>
 <wire x1="3.81" y1="32.512" x2="3.81" y2="31.8008" width="0.8128" layer="16"/>
 <wire x1="3.81" y1="31.8008" x2="6.858" y2="28.7528" width="0.8128" layer="16"/>

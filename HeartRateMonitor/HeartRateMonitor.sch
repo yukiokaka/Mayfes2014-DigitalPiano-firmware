@@ -1780,7 +1780,7 @@ for Power supply cable</description>
 <part name="P+6" library="Supply_Robotech" deviceset="VCC" device=""/>
 <part name="SUPPLY9" library="Supply_Robotech" deviceset="GND" device=""/>
 <part name="C6" library="Passive_Robotech" deviceset="C" device="/5" value="0.1u"/>
-<part name="VCC1" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
+<part name="VCC" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
 <part name="SW1" library="Passive_Robotech" deviceset="IS-2235" device=""/>
 </parts>
 <sheets>
@@ -1826,7 +1826,7 @@ for Power supply cable</description>
 <instance part="P+6" gate="VCC" x="91.44" y="40.64"/>
 <instance part="SUPPLY9" gate="GND" x="91.44" y="20.32"/>
 <instance part="C6" gate="G$1" x="96.52" y="30.48"/>
-<instance part="VCC1" gate="1" x="-30.48" y="48.26" rot="R270"/>
+<instance part="VCC" gate="1" x="-30.48" y="48.26" rot="R270"/>
 <instance part="SW1" gate="G$1" x="-25.4" y="48.26" rot="R270"/>
 </instances>
 <busses>
@@ -2033,7 +2033,7 @@ for Power supply cable</description>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="VCC1" gate="1" pin="P"/>
+<pinref part="VCC" gate="1" pin="P"/>
 <pinref part="SW1" gate="G$1" pin="P"/>
 </segment>
 </net>
