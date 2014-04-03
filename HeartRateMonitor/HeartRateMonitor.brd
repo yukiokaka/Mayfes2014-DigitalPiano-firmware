@@ -600,8 +600,8 @@ design rules under a new name.</description>
 <attribute name="NAME" x="5.842" y="7.5565" size="1.27" layer="25" font="vector" ratio="10"/>
 <attribute name="VALUE" x="10.1981" y="6.985" size="1.27" layer="27" font="vector" ratio="10" rot="R180"/>
 </element>
-<element name="TA7805" library="IC_Robotech" package="7805-LARGEHOLE" value="78(LARGEHOLE)" x="3.81" y="16.51" smashed="yes" rot="R270">
-<attribute name="NAME" x="6.6675" y="19.05" size="1.27" layer="25" rot="R270"/>
+<element name="TA7805" library="IC_Robotech" package="7805-LARGEHOLE" value="78(LARGEHOLE)" x="3.81" y="14.224" smashed="yes" rot="R270">
+<attribute name="NAME" x="6.6675" y="16.764" size="1.27" layer="25" rot="R270"/>
 </element>
 <element name="GND" library="Connector_Robotech" package="POWERPAD-2.4" value="" x="3.81" y="37.338" smashed="yes">
 <attribute name="NAME" x="1.905" y="39.624" size="1.27" layer="25" ratio="10"/>
@@ -633,10 +633,7 @@ design rules under a new name.</description>
 <contactref element="IC1" pad="8"/>
 <contactref element="C6" pad="1"/>
 <wire x1="3.81" y1="2.54" x2="3.81" y2="6.35" width="0.8128" layer="16"/>
-<wire x1="3.81" y1="13.97" x2="3.81" y2="6.35" width="0.8128" layer="16"/>
 <wire x1="12.7" y1="38.1" x2="12.7" y2="31.75" width="0.8128" layer="16"/>
-<wire x1="3.81" y1="13.97" x2="7.62" y2="13.97" width="0.8128" layer="16"/>
-<wire x1="7.62" y1="13.97" x2="17.78" y2="24.13" width="0.8128" layer="16"/>
 <wire x1="12.7" y1="31.75" x2="12.7" y2="29.21" width="0.8128" layer="16"/>
 <wire x1="12.7" y1="29.21" x2="15.24" y2="26.67" width="0.8128" layer="16"/>
 <wire x1="15.24" y1="26.67" x2="16.51" y2="26.67" width="0.8128" layer="16"/>
@@ -646,6 +643,12 @@ design rules under a new name.</description>
 <wire x1="17.78" y1="25.4" x2="17.78" y2="26.67" width="0.8128" layer="16"/>
 <wire x1="17.78" y1="25.4" x2="16.51" y2="26.67" width="0.8128" layer="16"/>
 <wire x1="17.78" y1="25.4" x2="19.05" y2="26.67" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="11.684" x2="3.81" y2="6.35" width="0.8128" layer="16"/>
+<wire x1="17.78" y1="24.13" x2="17.78" y2="20.828" width="0.8128" layer="16"/>
+<wire x1="17.78" y1="20.828" x2="13.97" y2="17.018" width="0.8128" layer="16"/>
+<wire x1="13.97" y1="17.018" x2="13.716" y2="16.764" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="11.684" x2="8.636" y2="11.684" width="0.8128" layer="16"/>
+<wire x1="8.636" y1="11.684" x2="13.716" y2="16.764" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$1">
 <contactref element="R1" pad="1"/>
@@ -672,9 +675,7 @@ design rules under a new name.</description>
 <contactref element="C6" pad="2"/>
 <wire x1="25.4" y1="13.97" x2="25.4" y2="16.51" width="0.8128" layer="16"/>
 <wire x1="25.4" y1="16.51" x2="33.02" y2="16.51" width="0.8128" layer="16"/>
-<wire x1="3.81" y1="16.51" x2="7.62" y2="16.51" width="0.8128" layer="16"/>
-<wire x1="7.62" y1="16.51" x2="12.7" y2="21.59" width="0.8128" layer="16"/>
-<wire x1="12.7" y1="21.59" x2="12.7" y2="25.4" width="0.8128" layer="16"/>
+<wire x1="12.7" y1="18.542" x2="12.7" y2="25.4" width="0.8128" layer="16"/>
 <wire x1="7.62" y1="38.1" x2="7.62" y2="37.084" width="0.8128" layer="16"/>
 <wire x1="7.62" y1="36.322" x2="7.62" y2="31.75" width="0.8128" layer="16"/>
 <wire x1="22.71" y1="39.37" x2="22.73" y2="39.35" width="0.8128" layer="16"/>
@@ -715,6 +716,10 @@ design rules under a new name.</description>
 <wire x1="6.604" y1="37.338" x2="7.62" y2="36.322" width="0.8128" layer="16"/>
 <wire x1="7.62" y1="36.322" x2="7.62" y2="37.084" width="0.8128" layer="16"/>
 <wire x1="7.62" y1="37.084" x2="7.112" y2="37.592" width="0.8128" layer="16"/>
+<wire x1="3.81" y1="14.224" x2="8.382" y2="14.224" width="0.8128" layer="16"/>
+<wire x1="8.382" y1="14.224" x2="12.065" y2="17.907" width="0.8128" layer="16"/>
+<wire x1="12.065" y1="17.907" x2="12.446" y2="18.288" width="0.8128" layer="16"/>
+<wire x1="12.7" y1="18.542" x2="12.446" y2="18.288" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$2">
 <contactref element="U$1" pad="P$4"/>
@@ -827,11 +832,11 @@ design rules under a new name.</description>
 <contactref element="TA7805" pad="1"/>
 <contactref element="C5" pad="1"/>
 <contactref element="SW1" pad="P$3"/>
-<wire x1="5.156" y1="22.646" x2="5.156" y2="20.396" width="0.8128" layer="16"/>
-<wire x1="5.156" y1="20.396" x2="3.81" y2="19.05" width="0.8128" layer="16"/>
 <wire x1="5.1668" y1="22.6568" x2="5.156" y2="22.646" width="0.8128" layer="16"/>
 <wire x1="7.62" y1="25.4" x2="7.62" y2="25.11" width="0.8128" layer="16"/>
 <wire x1="7.62" y1="25.11" x2="5.156" y2="22.646" width="0.8128" layer="16"/>
+<wire x1="5.156" y1="22.646" x2="5.156" y2="18.11" width="0.8128" layer="16"/>
+<wire x1="5.156" y1="18.11" x2="3.81" y2="16.764" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$12">
 <contactref element="R8" pad="1"/>
