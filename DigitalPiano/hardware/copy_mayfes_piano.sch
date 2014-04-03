@@ -2823,7 +2823,7 @@ for Power supply cable</description>
 <busses>
 </busses>
 <nets>
-<net name="G" class="0">
+<net name="N$1" class="0">
 <segment>
 <wire x1="170.18" y1="198.12" x2="170.18" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="K"/>
@@ -2834,10 +2834,9 @@ for Power supply cable</description>
 <wire x1="170.18" y1="198.12" x2="154.94" y2="198.12" width="0.1524" layer="91"/>
 <junction x="154.94" y="198.12"/>
 <pinref part="U$1" gate="G$1" pin="P$1"/>
-<label x="170.18" y="147.32" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="F#" class="0">
+<net name="N$4" class="0">
 <segment>
 <wire x1="167.64" y1="182.88" x2="167.64" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="139.7" x2="170.18" y2="139.7" width="0.1524" layer="91"/>
@@ -2849,10 +2848,9 @@ for Power supply cable</description>
 <wire x1="167.64" y1="185.42" x2="167.64" y2="182.88" width="0.1524" layer="91"/>
 <junction x="167.64" y="182.88"/>
 <pinref part="U$1" gate="G$1" pin="P$2"/>
-<label x="167.64" y="139.7" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="E" class="0">
+<net name="N$20" class="0">
 <segment>
 <wire x1="162.56" y1="152.4" x2="162.56" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="124.46" x2="170.18" y2="124.46" width="0.1524" layer="91"/>
@@ -2864,20 +2862,18 @@ for Power supply cable</description>
 <wire x1="162.56" y1="154.94" x2="162.56" y2="152.4" width="0.1524" layer="91"/>
 <junction x="162.56" y="152.4"/>
 <pinref part="U$1" gate="G$1" pin="P$4"/>
-<label x="167.64" y="124.46" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="G#" class="0">
+<net name="N$21" class="0">
 <segment>
 <wire x1="160.02" y1="137.16" x2="160.02" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="116.84" x2="170.18" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="SW6" gate="G$1" pin="3"/>
 <wire x1="154.94" y1="137.16" x2="160.02" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$5"/>
-<label x="165.1" y="116.84" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="A" class="0">
+<net name="N$22" class="0">
 <segment>
 <wire x1="157.48" y1="121.92" x2="157.48" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="109.22" x2="170.18" y2="109.22" width="0.1524" layer="91"/>
@@ -2889,10 +2885,9 @@ for Power supply cable</description>
 <wire x1="157.48" y1="124.46" x2="157.48" y2="121.92" width="0.1524" layer="91"/>
 <junction x="157.48" y="121.92"/>
 <pinref part="U$1" gate="G$1" pin="P$6"/>
-<label x="165.1" y="109.22" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="C^" class="0">
+<net name="N$24" class="0">
 <segment>
 <wire x1="170.18" y1="48.26" x2="162.56" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="48.26" x2="162.56" y2="53.34" width="0.1524" layer="91"/>
@@ -2905,20 +2900,18 @@ for Power supply cable</description>
 <wire x1="160.02" y1="55.88" x2="160.02" y2="53.34" width="0.1524" layer="91"/>
 <junction x="160.02" y="53.34"/>
 <pinref part="U$1" gate="G$1" pin="P$14"/>
-<label x="165.1" y="48.26" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="D#" class="0">
+<net name="N$26" class="0">
 <segment>
 <wire x1="297.18" y1="147.32" x2="299.72" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="299.72" y1="147.32" x2="299.72" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="SW9" gate="G$1" pin="3"/>
 <wire x1="299.72" y1="200.66" x2="322.58" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$28"/>
-<label x="297.18" y="147.32" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="D" class="0">
+<net name="N$33" class="0">
 <segment>
 <wire x1="297.18" y1="139.7" x2="302.26" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="139.7" x2="302.26" y2="185.42" width="0.1524" layer="91"/>
@@ -2930,20 +2923,18 @@ for Power supply cable</description>
 <wire x1="302.26" y1="187.96" x2="302.26" y2="185.42" width="0.1524" layer="91"/>
 <junction x="302.26" y="185.42"/>
 <pinref part="U$1" gate="G$1" pin="P$27"/>
-<label x="299.72" y="139.7" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="C#" class="0">
+<net name="N$34" class="0">
 <segment>
 <wire x1="297.18" y1="132.08" x2="304.8" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="304.8" y1="132.08" x2="304.8" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="SW11" gate="G$1" pin="3"/>
 <wire x1="304.8" y1="170.18" x2="322.58" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$26"/>
-<label x="299.72" y="132.08" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="C" class="0">
+<net name="N$35" class="0">
 <segment>
 <wire x1="297.18" y1="124.46" x2="307.34" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="124.46" x2="307.34" y2="154.94" width="0.1524" layer="91"/>
@@ -2955,17 +2946,15 @@ for Power supply cable</description>
 <wire x1="307.34" y1="157.48" x2="307.34" y2="154.94" width="0.1524" layer="91"/>
 <junction x="307.34" y="154.94"/>
 <pinref part="U$1" gate="G$1" pin="P$25"/>
-<label x="299.72" y="124.46" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="PLAY" class="0">
+<net name="N$45" class="0">
 <segment>
 <wire x1="297.18" y1="63.5" x2="320.04" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="63.5" x2="320.04" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="PLAY" gate="G$1" pin="4"/>
 <wire x1="325.12" y1="55.88" x2="320.04" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$17"/>
-<label x="299.72" y="63.5" size="2.54" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3142,24 +3131,22 @@ for Power supply cable</description>
 <pinref part="C8" gate="G$1" pin="-"/>
 </segment>
 </net>
-<net name="RST" class="0">
+<net name="N$47" class="0">
 <segment>
 <wire x1="297.18" y1="109.22" x2="322.58" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="322.58" y1="109.22" x2="322.58" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="RST" gate="G$1" pin="3"/>
 <wire x1="325.12" y1="116.84" x2="322.58" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$23"/>
-<label x="299.72" y="109.22" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="BOOT" class="0">
+<net name="N$49" class="0">
 <segment>
 <wire x1="297.18" y1="116.84" x2="320.04" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="116.84" x2="320.04" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="BOOT" gate="G$1" pin="4"/>
 <wire x1="320.04" y1="129.54" x2="325.12" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$24"/>
-<label x="299.72" y="116.84" size="2.54" layer="95"/>
 </segment>
 </net>
 <net name="N$51" class="0">
@@ -3353,16 +3340,15 @@ for Power supply cable</description>
 <wire x1="114.3" y1="152.4" x2="116.84" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="A#" class="0">
+<net name="N$40" class="0">
 <segment>
 <wire x1="170.18" y1="91.44" x2="170.18" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="SW13" gate="G$1" pin="3"/>
 <wire x1="152.4" y1="91.44" x2="170.18" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$9"/>
-<label x="165.1" y="91.44" size="2.54" layer="95"/>
 </segment>
 </net>
-<net name="B" class="0">
+<net name="BUZZER" class="0">
 <segment>
 <wire x1="162.56" y1="68.58" x2="162.56" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="55.88" x2="170.18" y2="55.88" width="0.1524" layer="91"/>
@@ -3374,7 +3360,6 @@ for Power supply cable</description>
 <wire x1="162.56" y1="71.12" x2="162.56" y2="68.58" width="0.1524" layer="91"/>
 <junction x="162.56" y="68.58"/>
 <pinref part="U$1" gate="G$1" pin="P$13"/>
-<label x="165.1" y="55.88" size="2.54" layer="95"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -3468,12 +3453,11 @@ for Power supply cable</description>
 <wire x1="355.6" y1="71.12" x2="358.14" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="REC" class="0">
+<net name="N$41" class="0">
 <segment>
 <pinref part="REC" gate="G$1" pin="3"/>
 <wire x1="297.18" y1="71.12" x2="325.12" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$18"/>
-<label x="299.72" y="71.12" size="2.54" layer="95"/>
 </segment>
 </net>
 <net name="N$46" class="0">
@@ -3483,7 +3467,7 @@ for Power supply cable</description>
 <wire x1="335.28" y1="71.12" x2="347.98" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="F" class="0">
+<net name="N$19" class="0">
 <segment>
 <wire x1="165.1" y1="167.64" x2="165.1" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="165.1" y1="132.08" x2="170.18" y2="132.08" width="0.1524" layer="91"/>
@@ -3495,7 +3479,6 @@ for Power supply cable</description>
 <wire x1="165.1" y1="170.18" x2="165.1" y2="167.64" width="0.1524" layer="91"/>
 <junction x="165.1" y="167.64"/>
 <pinref part="U$1" gate="G$1" pin="P$3"/>
-<label x="167.64" y="132.08" size="2.54" layer="95"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -3551,12 +3534,6 @@ for Power supply cable</description>
 <pinref part="SW1" gate="G$1" pin="O"/>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
 <wire x1="33.02" y1="129.54" x2="33.02" y2="134.62" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="P$11"/>
-<wire x1="170.18" y1="71.12" x2="167.64" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
