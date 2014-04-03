@@ -2002,8 +2002,8 @@ for Power supply cable</description>
 <part name="P+3" library="Supply_Robotech" deviceset="VCC" device=""/>
 <part name="P+4" library="Supply_Robotech" deviceset="VCC" device=""/>
 <part name="P+5" library="Supply_Robotech" deviceset="VCC" device=""/>
-<part name="PAD1" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
-<part name="PAD2" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
+<part name="GND" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
+<part name="+9V" library="Connector_Robotech" deviceset="POWERPAD" device="-2.4"/>
 <part name="SUPPLY10" library="Supply_Robotech" deviceset="GND" device=""/>
 <part name="SW4" library="Passive_Robotech" deviceset="PUSHSW3" device=""/>
 </parts>
@@ -2056,8 +2056,8 @@ for Power supply cable</description>
 <instance part="P+3" gate="VCC" x="114.3" y="58.42"/>
 <instance part="P+4" gate="VCC" x="58.42" y="106.68"/>
 <instance part="P+5" gate="VCC" x="10.16" y="104.14"/>
-<instance part="PAD1" gate="1" x="-2.54" y="83.82" rot="R270"/>
-<instance part="PAD2" gate="1" x="7.62" y="83.82" rot="R90"/>
+<instance part="GND" gate="1" x="-2.54" y="83.82" rot="R270"/>
+<instance part="+9V" gate="1" x="7.62" y="83.82" rot="R90"/>
 <instance part="SUPPLY10" gate="GND" x="-2.54" y="76.2"/>
 <instance part="SW4" gate="G$1" x="-12.7" y="17.78" rot="R270"/>
 </instances>
@@ -2319,7 +2319,7 @@ for Power supply cable</description>
 </segment>
 <segment>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
-<pinref part="PAD1" gate="1" pin="P"/>
+<pinref part="GND" gate="1" pin="P"/>
 <wire x1="-2.54" y1="81.28" x2="-2.54" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -2452,7 +2452,7 @@ for Power supply cable</description>
 <net name="N$23" class="0">
 <segment>
 <pinref part="SW2" gate="G$1" pin="P"/>
-<pinref part="PAD2" gate="1" pin="P"/>
+<pinref part="+9V" gate="1" pin="P"/>
 <wire x1="7.62" y1="86.36" x2="7.62" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
