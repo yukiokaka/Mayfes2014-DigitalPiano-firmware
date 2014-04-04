@@ -24,7 +24,7 @@ CPU   = cortex-m0
 THUMB = YES
 
 ### Linker script for the target MCU
-LINKSCRIPT = lpc11c24.ld
+LINKSCRIPT = lpc1114FN28.ld
 
 ### Include dirs, library dirs and definitions
 MATHLIB	= -lm
