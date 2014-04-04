@@ -48,8 +48,9 @@ void SysTick_Handler (void)
             }
         }
 
-        if (Mode == LIMIT_MODE) {
-            if (count < 2 || count > 3) {
+        if ((Mode != REC_MODE) && (rec_ptr != 0)) {
+            Mode = LIMIT_MODE;
+            if (count < 2 || (count > 3 && count <= 10) ) {
                 limit_sound();
                 buzzer_on();
             } else {
@@ -58,7 +59,7 @@ void SysTick_Handler (void)
             count++;
         }
 
-        if ((Mode != REC_MODE) && (rec_ptr != 0) && count >= 10) {
+        if (count >= 20) {
             rec_length = rec_ptr;
             set_rec_data((short *)&rec_length, 2, 0);
             LPC_TMR32B1->TCR |= (1 << 1);
@@ -66,13 +67,8 @@ void SysTick_Handler (void)
             for(rec_ptr = 0; rec_ptr < rec_length; rec_ptr++) {
                 set_rec_data((short *)melody_list + rec_ptr, 2, rec_ptr + 1);
             }
-
-            if (count >= 10) {
-                Mode = NORMAL_MODE;
-                count = 0;
-            }
-
-            rec_ptr = 0;
+            count = rec_ptr = 0;
+            Mode = NORMAL_MODE;
         }
 
         if (Mode == PLAY_MODE) {
