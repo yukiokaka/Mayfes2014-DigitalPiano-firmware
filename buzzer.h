@@ -17,9 +17,10 @@
 #define As 10
 #define B 11
 #define HC 12
+#define HC 13
 
-#define PLAY 13
-#define REC 14
+#define PLAY 14
+#define REC 15
 
 #define freq_C 262
 #define freq_Cs 277
@@ -34,6 +35,7 @@
 #define freq_As 466
 #define freq_B 494
 #define freq_HC 523
+#define freq_HA 880
 
 void pwm_init (void);
 void set_palse_width (const uint32_t new_palse_width);

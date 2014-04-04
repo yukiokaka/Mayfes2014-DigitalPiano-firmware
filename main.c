@@ -38,10 +38,14 @@ void SysTick_Handler (void)
         xprintf("sw   : %x  \n",switch_st);
         /* xprintf("mode : %d  ",Mode); */
         /* xprintf("rec  : %d\n", rec_ptr); */
+
         if (Mode == REC_MODE) {
             melody_list[rec_ptr++] = (switch_st & 0x1FFF);
-            if (rec_ptr == REC_LIMIT) Mode = NORMAL_MODE;
+            if (rec_ptr == REC_LIMIT) {                
+                Mode = NORMAL_MODE;
+            }
         }
+
         if ((Mode != REC_MODE) && (rec_ptr != 0)) {
             rec_length = rec_ptr;
             set_rec_data((short *)&rec_length, 2, 0);
@@ -50,6 +54,7 @@ void SysTick_Handler (void)
             }
             rec_ptr = 0;
         }
+
         if (Mode == PLAY_MODE) {
             if (play_ptr >= rec_length) {
                 Mode = NORMAL_MODE;

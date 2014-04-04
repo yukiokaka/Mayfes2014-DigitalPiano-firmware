@@ -9,18 +9,19 @@ static volatile uint32_t palse_width = 27272/2;
 static volatile uint8_t buzzer_status = OFF;
 
 static const int16_t scale_freq[] = {freq_C,
-                                      freq_Cs,
-                                      freq_D,
-                                      freq_Ds,
-                                      freq_E,
-                                      freq_F,
-                                      freq_Fs,
-                                      freq_G,
-                                      freq_Gs,
-                                      freq_A,
-                                      freq_As,
-                                      freq_B,
-                                      freq_HC,
+                                     freq_Cs,
+                                     freq_D,
+                                     freq_Ds,
+                                     freq_E,
+                                     freq_F,
+                                     freq_Fs,
+                                     freq_G,
+                                     freq_Gs,
+                                     freq_A,
+                                     freq_As,
+                                     freq_B,
+                                     freq_HC,
+                                     freq_HA
 };
 
 void pwm_init (void)
@@ -52,7 +53,7 @@ void set_pwm_period (const uint32_t new_pwm_period)
 void set_sound_scale(const uint8_t new_scale)
 {
     uint32_t new_pwm_period, new_palse_width; 
-    if (new_scale > 12) return;
+    if (new_scale > 13) return;
 
     new_pwm_period = (12000000 / scale_freq[new_scale]);
     new_palse_width = (new_pwm_period / 2);
