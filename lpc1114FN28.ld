@@ -1,9 +1,9 @@
-/* LPC11C24 Memory Definitions */
+/* LPC1114FN28 Memory Definitions */
 
 MEMORY
 {
   ROM (rx) : ORIGIN = 0x00000000, LENGTH = (32k)    /* Flash: 32k */
-  RAM (w) : ORIGIN = 0x10000000, LENGTH = (8k-32)   /* SRAM: 8k - IAP work */
+  RAM (w) : ORIGIN = 0x10000000, LENGTH = (4k-32)   /* SRAM: 4k - IAP work */
 }
 
 _startof_flash = ORIGIN(ROM);               /* Start of available flash memory address */
