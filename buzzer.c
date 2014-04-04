@@ -62,6 +62,11 @@ void set_sound_scale(const uint8_t new_scale)
     set_pwm_period(new_pwm_period);
 }
 
+void limit_sound(void)
+{
+    set_sound_scale(13);
+}
+
 void buzzer_on (void)
 {
     buzzer_status = ON;
@@ -86,8 +91,6 @@ void update_buzzer_status (void)
         LPC_TMR32B1->TCR |= (1 << 1);
         LPC_TMR32B1->TCR &= ~(1 << 0); 
     }
-    xprintf ("%x  ", LPC_TMR32B1->TCR);
-    xprintf("%d PWM period = %d  ", buzzer_status == ON,pwm_period);
-    xprintf("PWM palse = %d  ", palse_width);
+    xprintf("st = %d PWM period = %d  ", buzzer_status == ON,pwm_period);
     pwm_init();
 }

@@ -20,11 +20,12 @@ static volatile uint16_t switch_st = 0;
 static uint16_t rec_ptr = 0;
 static short rec_length = 0;
 static short play_ptr = 0;
-static short melody_list[REC_LIMIT]; 
+static short melody_list[REC_LIMIT+1]; 
 static int Mode = NORMAL_MODE;
 
 /* 1kHz Timer ISR */
 static int i = 0;
+static int count = 0;
 
 void SysTick_Handler (void)
 {
@@ -35,23 +36,42 @@ void SysTick_Handler (void)
         update_switch_status();
         switch_st = get_switch_status();
         update_buzzer_status();
-        xprintf("sw   : %x  \n",switch_st);
-        /* xprintf("mode : %d  ",Mode); */
-        /* xprintf("rec  : %d\n", rec_ptr); */
+        xprintf("sw   : %4x  ",switch_st);
+        xprintf("mode : %d  ",Mode);
+        xprintf("count : %d  ",count);
+        xprintf("rec  : %d\n", rec_ptr);
 
         if (Mode == REC_MODE) {
             melody_list[rec_ptr++] = (switch_st & 0x1FFF);
             if (rec_ptr == REC_LIMIT) {                
-                Mode = NORMAL_MODE;
+                Mode = LIMIT_MODE;
             }
         }
 
-        if ((Mode != REC_MODE) && (rec_ptr != 0)) {
+        if (Mode == LIMIT_MODE) {
+            if (count < 2 || count > 3) {
+                limit_sound();
+                buzzer_on();
+            } else {
+                buzzer_off();
+            }
+            count++;
+        }
+
+        if ((Mode != REC_MODE) && (rec_ptr != 0) && count >= 10) {
             rec_length = rec_ptr;
             set_rec_data((short *)&rec_length, 2, 0);
+            LPC_TMR32B1->TCR |= (1 << 1);
+            LPC_TMR32B1->TCR &= ~(1 << 0); 
             for(rec_ptr = 0; rec_ptr < rec_length; rec_ptr++) {
                 set_rec_data((short *)melody_list + rec_ptr, 2, rec_ptr + 1);
             }
+
+            if (count >= 10) {
+                Mode = NORMAL_MODE;
+                count = 0;
+            }
+
             rec_ptr = 0;
         }
 
@@ -94,12 +114,13 @@ int main (void)
         /*         uart_putc(c); */
         /*         if (c >= '0' && c <= '9') set_sound_scale(c-'0'); */
         /*         if (c >= 'a' && c <= 'c') set_sound_scale(c-'a'+10); */
-    /* } */
+        /* } */
 
         /* test2 */
         /* xprintf("sw : %x\n", get_switch_status()); */
 
         /* test3 */
+        if (Mode != LIMIT_MODE) {
             if (switch_st & (1 << C)) {
                 set_sound_scale(C);
                 buzzer_on();
@@ -156,16 +177,20 @@ int main (void)
             if ((switch_st & 0x1FFF) == 0) {
                 buzzer_off();
             }
-            if(switch_st & (1 << PLAY)) {
-                Mode = PLAY_MODE;
-            }
-            
+        }
+
+        if(switch_st & (1 << PLAY)) {
+            Mode = PLAY_MODE;
+        }
+
+        if (Mode != LIMIT_MODE) {
             if(switch_st & (1 << REC)) {
                 Mode = REC_MODE;
             } else if (Mode != PLAY_MODE) { /* 再生中は戻さないように */
                 Mode = NORMAL_MODE;
             }
- 
+        } 
+
     }
             
             

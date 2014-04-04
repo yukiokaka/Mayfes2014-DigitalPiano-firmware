@@ -2,6 +2,7 @@
 #include "system_LPC11xx.h"
 #include "buzzer.h"
 #include "flash_nvol.h"
+#include "xprintf.h"
 
 #define NVOL_VAR_DEVINDEX 0
 
@@ -18,12 +19,13 @@ uint8_t get_rec_data(short* rec_length, short melody_list[])
         /* flashからロード */
         if(NVOL_GetVariable(NVOL_VAR_DEVINDEX + i + 1, (UNSIGNED8*)&data, 2) == FALSE) {
             /* 読み取り失敗。 */
+            xprintf("get miss %d\n", i);
         }
         else {
             melody_list[i] = data;
         }
     }
-
+    xprintf("get finish %d\n", *rec_length);
     return 0;
 }
 
@@ -32,6 +34,7 @@ int set_rec_data(short *display_data, int size, int row)
 
     if(NVOL_SetVariable(NVOL_VAR_DEVINDEX+row, (UNSIGNED8*)display_data, size) == FALSE) {
         /* fail */
+        xprintf("set miss %d\n", row);
         return 0;
     }
     /* suceed */

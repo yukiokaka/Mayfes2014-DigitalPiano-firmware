@@ -17,10 +17,9 @@
 #define As 10
 #define B 11
 #define HC 12
-#define HC 13
 
-#define PLAY 14
-#define REC 15
+#define PLAY 13
+#define REC 14
 
 #define freq_C 262
 #define freq_Cs 277
@@ -41,6 +40,7 @@ void pwm_init (void);
 void set_palse_width (const uint32_t new_palse_width);
 void set_pwm_period (const uint32_t new_pwm_period);
 void set_sound_scale(const uint8_t new_scale);
+void limit_sound(void);
 void buzzer_on (void);
 void buzzer_off (void);
 void update_buzzer_status (void);
