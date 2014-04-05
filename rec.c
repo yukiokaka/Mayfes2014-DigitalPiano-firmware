@@ -6,33 +6,43 @@
 
 #define NVOL_VAR_DEVINDEX 0
 
-uint8_t get_rec_data(short* rec_length, short melody_list[])
+uint8_t get_rec_data(unsigned char* rec_length, short melody_list[])
 {
     /* 初回使用時にflashからロードする。 */
-    short data;
+    unsigned char data;
     int i;
-    if(NVOL_GetVariable(NVOL_VAR_DEVINDEX, (UNSIGNED8*)rec_length, 2) == FALSE) {
+    if(NVOL_GetVariable(NVOL_VAR_DEVINDEX, (UNSIGNED8*)rec_length, 1) == FALSE) {
         *rec_length = 0;
     }
     
     for(i = 0;i < *rec_length; i++) {
         /* flashからロード */
-        if(NVOL_GetVariable(NVOL_VAR_DEVINDEX + i + 1, (UNSIGNED8*)&data, 2) == FALSE) {
+        if(NVOL_GetVariable(NVOL_VAR_DEVINDEX + i + 1, (UNSIGNED8*)&data, 1) == FALSE) {
             /* 読み取り失敗。 */
             xprintf("get miss %d\n", i);
         }
         else {
-            melody_list[i] = data;
+            melody_list[i] = (1 << (data - 1));
         }
     }
     xprintf("get finish %d\n", *rec_length);
     return 0;
 }
 
-int set_rec_data(short *display_data, int size, int row)
+int set_rec_data(short *rec_data, int row)
 {
 
-    if(NVOL_SetVariable(NVOL_VAR_DEVINDEX+row, (UNSIGNED8*)display_data, size) == FALSE) {
+    int i;
+    unsigned char compress_data;
+    if (*rec_data == 0) compress_data = 0;
+    else {
+        for (i = C; i <= HC; i++) {
+            if (switch_st & (1 << i)) {
+                compress_data = (i + 1);
+            }
+        }
+    }
+    if(NVOL_SetVariable(NVOL_VAR_DEVINDEX+row, (UNSIGNED8*)&compress_data, 1) == FALSE) {
         /* fail */
         xprintf("set miss %d\n", row);
         return 0;
@@ -40,3 +50,4 @@ int set_rec_data(short *display_data, int size, int row)
     /* suceed */
     return 1;
 }
+
