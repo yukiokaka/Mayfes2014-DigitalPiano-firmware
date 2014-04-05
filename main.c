@@ -98,11 +98,11 @@ void SysTick_Handler (void)
         limit_count++;
         if (limit_count >= 20) {
             rec_length = rec_ptr;
-            set_rec_data(&rec_length, 1, 0);
+            set_rec_data(&rec_length, 0);
             LPC_TMR32B1->TCR |= (1 << 1);
             LPC_TMR32B1->TCR &= ~(1 << 0);
             for(rec_ptr = 0; rec_ptr < rec_length; rec_ptr++) {
-                set_rec_data(melody_list + rec_ptr, 1, rec_ptr + 1);
+                set_rec_data(melody_list + rec_ptr, rec_ptr + 1);
             }
             limit_count = rec_ptr = 0;
             Mode = NORMAL_MODE;
