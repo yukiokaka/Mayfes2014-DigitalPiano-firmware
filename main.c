@@ -16,20 +16,20 @@
 /*---------------------------------------------------------*/
 
 
-static volatile uint16_t switch_st = 0;
-static uint16_t rec_ptr = 0;
+
+static short rec_ptr = 0;
 static short rec_length = 0;
 static short play_ptr = 0;
-static short melody_list[REC_LIMIT]; 
+static short melody_list[REC_LIMIT];
 static int Mode = NORMAL_MODE;
-
-/* 1kHz Timer ISR */
 static int i = 0;
 static int limit_count = 0;
 
+/* 20Hz Timer ISR */
 void SysTick_Handler (void)
 {
-    uint16_t scale;
+    uint16_t scale, switch_st;
+
     SysTick->CTRL;
 
     i++;
@@ -114,7 +114,7 @@ void SysTick_Handler (void)
     xprintf("mode : %d  ",Mode);
     xprintf("limit_count : %d  ",limit_count);
     xprintf("rec  : %d\n", rec_ptr);
-    
+
 }
 
 
@@ -135,12 +135,12 @@ int main (void)
     SysTick->CTRL = 0x07;
 
     xprintf("test\n");
-    
+
     while (1) {
         /* do nothing */
     }
-    
-            
+
+
     return 0;
 }
 
