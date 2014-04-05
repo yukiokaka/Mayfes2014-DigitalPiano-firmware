@@ -7,7 +7,6 @@
 #define LIMIT_MODE 3 /* 録音限界(通常操作は禁止しておく) */
 
 #define REC_LIMIT 99
-
 int main (void);
 void SysTick_Handler (void);
 
