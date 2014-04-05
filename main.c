@@ -55,7 +55,6 @@ void SysTick_Handler (void)
     }
 
     else if (Mode == PLAY_MODE) {
-        get_rec_data(&rec_length, melody_list);
         if (play_ptr >= rec_length) {
             Mode = NORMAL_MODE;
             play_ptr = 0;
